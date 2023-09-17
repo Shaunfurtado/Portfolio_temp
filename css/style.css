@@ -60,3 +60,28 @@ footer {
     padding: 1rem 0;
     text-align: center;
 }
+/* ... (previous styles) */
+
+/* Smooth transitions for improved user experience */
+a {
+    transition: color 0.3s, transform 0.2s;
+}
+
+a:hover {
+    color: #ff8c00;
+    transform: scale(1.05); /* Enlarge the link on hover */
+}
+
+/* Fade-in effect for sections */
+section {
+    padding: 4rem 0;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px); /* Slide in from the bottom */
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
