@@ -85,3 +85,33 @@ section.active {
     opacity: 1;
     transform: translateY(0);
 }
+/* ... (previous styles) */
+
+/* Style for project cards */
+.project-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 2rem;
+    padding: 2rem;
+    justify-content: flex-start;
+    scroll-snap-type: x mandatory;
+    white-space: nowrap;
+}
+
+.project-card {
+    min-width: 300px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    scroll-snap-align: start;
+}
+
+.project-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* ... (previous styles) */
