@@ -1,0 +1,462 @@
+[{
+  "_id": {
+    "$oid": "65d8ef816575eeac5fa613fa"
+  },
+  "problemNumber": "A",
+  "problemName": "Watermelon",
+  "solvedDate": "2022-06-27",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/4/problem/A",
+  "problemStatement": "One hot summer day Pete and his friend Billy decided to buy a watermelon. They chose the biggest and the ripest one, in their opinion. After that the watermelon was weighed, and the scales showed w kilos. They rushed home, dying of thirst, and decided to divide the berry, however they faced a hard problem.\n\nPete and Billy are great fans of even numbers, that's why they want to divide the watermelon in such a way that each of the two parts weighs even number of kilos, at the same time it is not obligatory that the parts are equal. The boys are extremely tired and want to start their meal as soon as possible, that's why you should help them and find out, if they can divide the watermelon in the way they want. For sure, each of them should get a part of positive weight.",
+  "quickNote": "Brute Force , Math",
+  "solution": "#include<iostream>\nusing namespace std;\nmain() \n{\n    int n;\n    cin>>n;\n    if (n<=2 || n%2!=0)\n        cout<<\"NO\"<<endl;\n    else \n        cout<<\"YES\"<<endl;\t\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8efe56575eeac5fa613ff"
+  },
+  "problemNumber": "A",
+  "problemName": "Way Too Long Words",
+  "solvedDate": "2023-10-21",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/71/problem/A",
+  "problemStatement": "Sometimes some words like \"localization\" or \"internationalization\" are so long that writing them many times in one text is quite tiresome.\n\nLet's consider a word too long, if its length is strictly more than 10 characters. All too long words should be replaced with a special abbreviation.\n\nThis abbreviation is made like this: we write down the first and the last letter of a word and between them we write the number of letters between the first and the last letters. That number is in decimal system and doesn't contain any leading zeroes.\n\nThus, \"localization\" will be spelt as \"l10n\", and \"internationalization» will be spelt as \"i18n\".\n\nYou are suggested to automatize the process of changing the words with abbreviations. At that all too long words should be replaced by the abbreviation and the words that are not too long should not undergo any changes.",
+  "quickNote": "Strings",
+  "solution": "#include <iostream>\nusing namespace std;\nint main()\n{\n    int n;\n    cin >> n;\n    for (int i = 0; i < n; i++)\n    {\n        string st;\n        cin >> st;\n        int length = st.size();\n        if (length <= 10)\n        {\n            cout << st << endl;\n        }\n        else\n        {\n            cout << st[0] << length - 2 << st[length - 1] << endl;\n        }\n    }\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f0386575eeac5fa61402"
+  },
+  "problemNumber": "A",
+  "problemName": "Team",
+  "solvedDate": "2023-10-23",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/231/problem/A",
+  "problemStatement": "One day three best friends Petya, Vasya and Tonya decided to form a team and take part in programming contests. Participants are usually offered several problems during programming contests. Long before the start the friends decided that they will implement a problem if at least two of them are sure about the solution. Otherwise, the friends won't write the problem's solution.\n\nThis contest offers n problems to the participants. For each problem we know, which friend is sure about the solution. Help the friends find the number of problems for which they will write a solution.",
+  "quickNote": "Brute force, greedy",
+  "solution": "#include <iostream>\nusing namespace std;\nint main()\n{\n    int n;\n    int ma = 0;\n    cin >> n;\n    for (int i = 0; i < n; i++)\n    {\n        int sar[3];\n        for (int k = 0; k < 3; k++)\n        {\n            cin >> sar[k];\n        }\n        int count = 0;\n        for (int j = 0; j < 3; j++)\n        {\n            if (sar[j] == 1)\n            {\n                count++;\n            }\n        }\n        if (count >= 2)\n        {\n            ma++;\n        }\n    }\n\n    cout << ma << endl;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f06d6575eeac5fa61404"
+  },
+  "problemNumber": "A",
+  "problemName": "Next Round",
+  "solvedDate": "2023-10-23",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/158/problem/A",
+  "problemStatement": "\"Contestant who earns a score equal to or greater than the k-th place finisher's score will advance to the next round, as long as the contestant earns a positive score...\" — an excerpt from contest rules.\n\nA total of n participants took part in the contest (n ≥ k), and you already know their scores. Calculate how many participants will advance to the next round.",
+  "quickNote": "Special Problem, Implementation",
+  "solution": "#include <iostream>\nusing namespace std;\n\nint main()\n{\n    int n, k, count = 0;\n    cin >> n >> k;\n    int scores[n];\n    for (int i = 0; i < n; i++)\n    {\n        cin >> scores[i];\n    }\n    int kth_score = scores[k - 1];\n    for (int i = 0; i < n; i++)\n    {\n        if (scores[i] >= kth_score && scores[i] > 0)\n        {\n            count++;\n        }\n    }\n    cout << count << endl;\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f0a46575eeac5fa61406"
+  },
+  "problemNumber": "A",
+  "problemName": "Bit++",
+  "solvedDate": "2023-10-23",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/282/problem/A",
+  "problemStatement": "The classic programming language of Bitland is Bit++. This language is so peculiar and complicated.\n\nThe language is that peculiar as it has exactly one variable, called x. Also, there are two operations:\n\nOperation ++ increases the value of variable x by 1.\nOperation -- decreases the value of variable x by 1.\nA statement in language Bit++ is a sequence, consisting of exactly one operation and one variable x. The statement is written without spaces, that is, it can only contain characters \"+\", \"-\", \"X\". Executing a statement means applying the operation it contains.\n\nA programme in Bit++ is a sequence of statements, each of them needs to be executed. Executing a programme means executing all the statements it contains.\n\nYou're given a programme in language Bit++. The initial value of x is 0. Execute the programme and find its final value (the value of the variable when this programme is executed).",
+  "quickNote": "Implementation",
+  "solution": "#include <iostream>\nusing namespace std;\n\nint main()\n{\n    int n, x = 0;\n    cin >> n;\n    for (int i = 0; i < n; i++)\n    {\n        string am;\n        cin >> am;\n        if (am == \"++X\" || am == \"X++\")\n        {\n            x++;\n        }\n        else if (am == \"--X\" || am == \"X--\")\n        {\n            x--;\n        }\n    }\n    cout << x << endl;\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f0fd6575eeac5fa61409"
+  },
+  "problemNumber": "A",
+  "problemName": "Domino piling",
+  "solvedDate": "2023-10-23",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/50/problem/A",
+  "problemStatement": "You are given a rectangular board of M × N squares. Also you are given an unlimited number of standard domino pieces of 2 × 1 squares. You are allowed to rotate the pieces. You are asked to place as many dominoes as possible on the board so as to meet the following conditions:\n\n1. Each domino completely covers two squares.\n\n2. No two dominoes overlap.\n\n3. Each domino lies entirely inside the board. It is allowed to touch the edges of the board.\n\nFind the maximum number of dominoes, which can be placed under these restrictions.",
+  "quickNote": "Greedy, Math",
+  "solution": "#include <iostream>\nusing namespace std;\n\nint main()\n{\n    int n, m;\n    cin >> n >> m;\n    int ke, xe;\n    ke = m * n;\n    xe = ke / 2;\n    cout << xe << endl;\n\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f1316575eeac5fa6140b"
+  },
+  "problemNumber": "A",
+  "problemName": "Beautiful Matrix",
+  "solvedDate": "2023-10-24",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/263/problem/A",
+  "problemStatement": "You've got a 5 × 5 matrix, consisting of 24 zeroes and a single number one. Let's index the matrix rows by numbers from 1 to 5 from top to bottom, let's index the matrix columns by numbers from 1 to 5 from left to right. In one move, you are allowed to apply one of the two following transformations to the matrix:\n\nSwap two neighboring matrix rows, that is, rows with indexes i and i + 1 for some integer i (1 ≤ i < 5).\nSwap two neighboring matrix columns, that is, columns with indexes j and j + 1 for some integer j (1 ≤ j < 5).\nYou think that a matrix looks beautiful, if the single number one of the matrix is located in its middle (in the cell that is on the intersection of the third row and the third column). Count the minimum number of moves needed to make the matrix beautiful.",
+  "quickNote": "Implementation",
+  "solution": "#include <iostream>\n#include <cstdlib>\nusing namespace std;\n\nint main()\n{\n    int n[5][5], i, j;\n    for (i = 0; i < 5; i++)\n    {\n        for (j = 0; j < 5; j++)\n        {\n            cin >> n[i][j];\n            if (n[i][j] == 1)\n            {\n                cout << abs(i - 2) + abs(j - 2) << endl;\n                return 0;\n            }\n        }\n    }\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f1656575eeac5fa6140d"
+  },
+  "problemNumber": "A",
+  "problemName": "Petya and Strings",
+  "solvedDate": "2023-10-24",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/112/problem/A",
+  "problemStatement": "Little Petya loves presents. His mum bought him two strings of the same size for his birthday. The strings consist of uppercase and lowercase Latin letters. Now Petya wants to compare those two strings lexicographically. The letters' case does not matter, that is an uppercase letter is considered equivalent to the corresponding lowercase letter. Help Petya perform the comparison.",
+  "quickNote": "Implementation, Strings",
+  "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main()\n{\n    int i, j;\n    string ax,ac;\n    cin>> ax>> ac;\n    for(i=0;i<ax.length();i++){\n        ax[i]=tolower(ax[i]);\n        ac[i]=tolower(ac[i]);\n    }\n    if(ax<ac){\n        cout<<-1<<endl;\n    }\n    else if (ax>ac){\n        cout<<1<<endl;\n    }\n    else if (ax==ac)\n    {\n        cout<<0<<endl;\n    }\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f1a16575eeac5fa6140f"
+  },
+  "problemNumber": "A",
+  "problemName": "Helpful Maths",
+  "solvedDate": "2023-10-24",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/339/problem/A",
+  "problemStatement": "Xenia the beginner mathematician is a third year student at elementary school. She is now learning the addition operation.\n\nThe teacher has written down the sum of multiple numbers. Pupils should calculate the sum. To make the calculation easier, the sum only contains numbers 1, 2 and 3. Still, that isn't enough for Xenia. She is only beginning to count, so she can calculate a sum only if the summands follow in non-decreasing order. For example, she can't calculate sum 1+3+2+1 but she can calculate sums 1+1+2 and 3+3.\n\nYou've got the sum that was written on the board. Rearrange the summans and print the sum in such a way that Xenia can calculate the sum.",
+  "quickNote": "greedy, implementation, sortings, strings",
+  "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main()\n{\n    string s;\n    cin >> s;\n    vector<int> numbers;\n\n    for (int i = 0; i < s.size(); i++)\n    {\n        if (s[i] != '+')\n        {\n            numbers.push_back(s[i] - '0');\n        }\n    }\n\n    sort(numbers.begin(), numbers.end());\n\n    for (int i = 0; i < numbers.size(); i++)\n    {\n        cout << numbers[i];\n        if (i != numbers.size() - 1)\n        {\n            cout << \"+\";\n        }\n    }\n\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f1d96575eeac5fa61411"
+  },
+  "problemNumber": "A",
+  "problemName": "Word Capitalization",
+  "solvedDate": "2023-10-25",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/281/problem/A",
+  "problemStatement": "Capitalization is writing a word with its first letter as a capital letter. Your task is to capitalize the given word.\n\nNote, that during capitalization all the letters except the first one remains unchanged.",
+  "quickNote": "Implementation, strings\n",
+  "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main()\n{\n    string ax;\n    cin>>ax;\n    ax[0]=toupper(ax[0]);\n    cout<<ax<<endl;\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f2126575eeac5fa61413"
+  },
+  "problemNumber": "A",
+  "problemName": "Boy or Girl",
+  "solvedDate": "2023-10-25",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/236/problem/A",
+  "problemStatement": "Those days, many boys use beautiful girls' photos as avatars in forums. So it is pretty hard to tell the gender of a user at the first glance. Last year, our hero went to a forum and had a nice chat with a beauty (he thought so). After that they talked very often and eventually they became a couple in the network.\n\nBut yesterday, he came to see \"her\" in the real world and found out \"she\" is actually a very strong man! Our hero is very sad and he is too tired to love again now. So he came up with a way to recognize users' genders by their user names.\n\nThis is his method: if the number of distinct characters in one's user name is odd, then he is a male, otherwise she is a female. You are given the string that denotes the user name, please help our hero to determine the gender of this user by his method.",
+  "quickNote": "brute force, implementation, strings",
+  "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main()\n{\n    string ax;\n    cin>>ax;\n    set<char> unique(ax.begin(),ax.end());\n    if(unique.size()%2 == 0){\n        cout<<\"CHAT WITH HER!\";\n    }\n    else{\n        cout<<\"IGNORE HIM!\";\n\n    }\n    return 0;\n\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f2396575eeac5fa61415"
+  },
+  "problemNumber": "A",
+  "problemName": "Stones on the Table",
+  "solvedDate": "2023-10-25",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/266/problem/A",
+  "problemStatement": "There are n stones on the table in a row, each of them can be red, green or blue. Count the minimum number of stones to take from the table so that any two neighboring stones had different colors. Stones in a row are considered neighboring if there are no other stones between them.",
+  "quickNote": "implementation",
+  "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main()\n{\n    int m,n=0,i;\n    string ax;\n    cin>>m>>ax;    \n    for(i=0;i<ax.size();i++){\n        if(ax[i]==ax[i+1]){\n            n++;\n        }\n    }\n    cout<<n;\n    return 0;\n\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f25f6575eeac5fa61417"
+  },
+  "problemNumber": "A",
+  "problemName": "Bear and Big Brother",
+  "solvedDate": "2023-10-25",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/791/problem/A",
+  "problemStatement": "Bear Limak wants to become the largest of bears, or at least to become larger than his brother Bob.\n\nRight now, Limak and Bob weigh a and b respectively. It's guaranteed that Limak's weight is smaller than or equal to his brother's weight.\n\nLimak eats a lot and his weight is tripled after every year, while Bob's weight is doubled after every year.\n\nAfter how many full years will Limak become strictly larger (strictly heavier) than Bob?",
+  "quickNote": "implementation",
+  "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main()\n{\n    int m,n,i=0;\n    cin>>m>>n;    \n    while(m<=n){\n        m*=3;\n        n*=2;\n        \n        i++;\n    }\n    cout<<i;\n    return 0;\n\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f2a06575eeac5fa61419"
+  },
+  "problemNumber": "A",
+  "problemName": "Elephant",
+  "solvedDate": "2023-10-25",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/617/problem/A",
+  "problemStatement": "An elephant decided to visit his friend. It turned out that the elephant's house is located at point 0 and his friend's house is located at point x(x > 0) of the coordinate line. In one step the elephant can move 1, 2, 3, 4 or 5 positions forward. Determine, what is the minimum number of steps he need to make in order to get to his friend's house.",
+  "quickNote": "Math",
+  "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main()\n{\n    int x;\n    cin >> x;\n    cout << (x + 4) / 5 << endl;\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f2d06575eeac5fa6141b"
+  },
+  "problemNumber": "A",
+  "problemName": "Soldier and Bananas",
+  "solvedDate": "2023-10-26",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/546/problem/A",
+  "problemStatement": "A soldier wants to buy w bananas in the shop. He has to pay k dollars for the first banana, 2k dollars for the second one and so on (in other words, he has to pay i·k dollars for the i-th banana).\n\nHe has n dollars. How many dollars does he have to borrow from his friend soldier to buy w bananas?",
+  "quickNote": "brute force, implementation, math",
+  "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main()\n{\n    int k=0,n=0,w=0,m=0,x=0;\n    cin >> k >> n >> w;\n    for(int i=1; i<=w; i++){\n        m=k*i+m;\n    }\n    x=m-n;\n    if(x<0) x=0; // If the soldier has enough money, he doesn't need to borrow\n    cout<<x;\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f2fe6575eeac5fa6141d"
+  },
+  "problemNumber": "A",
+  "problemName": "Word",
+  "solvedDate": "2023-10-26",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/59/problem/A",
+  "problemStatement": "Vasya is very upset that many people on the Net mix uppercase and lowercase letters in one word. That's why he decided to invent an extension for his favorite browser that would change the letters' register in every word so that it either only consisted of lowercase letters or, vice versa, only of uppercase ones. At that as little as possible letters should be changed in the word. For example, the word HoUse must be replaced with house, and the word ViP — with VIP. If a word contains an equal number of uppercase and lowercase letters, you should replace all the letters with lowercase ones. For example, maTRIx should be replaced by matrix. Your task is to use the given method on one given word.",
+  "quickNote": "implementation, strings\n",
+  "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main()\n{\n    string s;\n    cin >> s;\n    int ub = 0, lb = 0;\n    for(int i=0; i<s.size(); i++){\n        if(isupper(s[i])) ub++;\n        else lb++;\n    }\n    if(ub > lb){\n        transform(s.begin(), s.end(), s.begin(), ::toupper);\n    }\n    else{\n        transform(s.begin(), s.end(), s.begin(), ::tolower);\n    }\n    cout << s;\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f3226575eeac5fa6141f"
+  },
+  "problemNumber": "A",
+  "problemName": "Wrong Subtraction",
+  "solvedDate": "2023-10-27",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/977/problem/A",
+  "problemStatement": "Little girl Tanya is learning how to decrease a number by one, but she does it wrong with a number consisting of two or more digits. Tanya subtracts one from a number by the following algorithm:\n\nif the last digit of the number is non-zero, she decreases the number by one;\nif the last digit of the number is zero, she divides the number by 10 (i.e. removes the last digit).\nYou are given an integer number n\n. Tanya will subtract one from it k\n times. Your task is to print the result after all k\n subtractions.\n\nIt is guaranteed that the result will be positive integer number.",
+  "quickNote": "Implementation",
+  "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main()\n{\n    int x,y;\n    cin >> x >> y;\n    for(int i=0; i<y; i++){\n        if(x%10==0){\n            x/=10;\n        }\n        else if(x==0){\n            break;\n        }\n        else{\n                x-=1;\n            }\n        }\n    cout << x;\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f3576575eeac5fa61421"
+  },
+  "problemNumber": "A",
+  "problemName": "Nearly Lucky Number",
+  "solvedDate": "2023-10-27",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/110/problem/A",
+  "problemStatement": "Petya loves lucky numbers. We all know that lucky numbers are the positive integers whose decimal representations contain only the lucky digits 4 and 7. For example, numbers 47, 744, 4 are lucky and 5, 17, 467 are not.\n\nUnfortunately, not all numbers are lucky. Petya calls a number nearly lucky if the number of lucky digits in it is a lucky number. He wonders whether number n is a nearly lucky number.",
+  "quickNote": "Implementation",
+  "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main()\n{\n    int x=0;\n     int64_t y;\n    cin >> y;\n    while(y>0){\n        int d=y%10;\n        if(d==4 || d==7){\n            x++;\n        }\n        y/=10;\n    }\n    if(x==4 || x==7){\n        cout << \"YES\";\n    }\n    else{\n        cout << \"NO\";\n    }\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f3996575eeac5fa61424"
+  },
+  "problemNumber": "A",
+  "problemName": "Translation",
+  "solvedDate": "2023-10-28",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/41/problem/A",
+  "problemStatement": "The translation from the Berland language into the Birland language is not an easy task. Those languages are very similar: a berlandish word differs from a birlandish word with the same meaning a little: it is spelled (and pronounced) reversely. For example, a Berlandish word code corresponds to a Birlandish word edoc. However, it's easy to make a mistake during the «translation». Vasya translated word s from Berlandish into Birlandish as t. Help him: find out if he translated the word correctly.",
+  "quickNote": "implementation, strings\n",
+  "solution": "#include <bits/stdc++.h>\nusing namespace std;\nbool berl(const string& s, const string& t) {\n    string rev_s = s;\n    reverse(rev_s.begin(), rev_s.end());\n    return rev_s == t;\n}\nint main()\n{\n    string y , z;\n    cin >> y >> z;\n    if(berl(y,z))\n        cout << \"YES\";\n    else\n        cout << \"NO\";\n    \n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f3c16575eeac5fa61426"
+  },
+  "problemNumber": "A",
+  "problemName": "Anton and Danik",
+  "solvedDate": "2023-10-28",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/734/problem/A",
+  "problemStatement": "Anton likes to play chess, and so does his friend Danik.\n\nOnce they have played n games in a row. For each game it's known who was the winner — Anton or Danik. None of the games ended with a tie.\n\nNow Anton wonders, who won more games, he or Danik? Help him determine this.",
+  "quickNote": "implementation, strings",
+  "solution": "#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int x,m,n;\n    string y ;\n    cin >> x >> y;\n    m = count(y.begin(), y.end(), 'A');\n    n = count(y.begin(), y.end(), 'D');\n    if(m>n){\n        cout << \"Anton\";\n    }\n    else if(m==n){\n        cout << \"Friendship\";\n    }\n    else{\n        cout << \"Danik\";\n    }\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f3e76575eeac5fa61428"
+  },
+  "problemNumber": "A",
+  "problemName": "Tram",
+  "solvedDate": "2023-10-29",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/116/problem/A",
+  "problemStatement": "Linear Kingdom has exactly one tram line. It has n stops, numbered from 1 to n in the order of tram's movement. At the i-th stop ai passengers exit the tram, while bi passengers enter it. The tram is empty before it arrives at the first stop. Also, when the tram arrives at the last stop, all passengers exit so that it becomes empty.\n\nYour task is to calculate the tram's minimum capacity such that the number of people inside the tram at any time never exceeds this capacity. Note that at each stop all exiting passengers exit before any entering passenger enters the tram.",
+  "quickNote": "implementation",
+  "solution": "#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int n,x=0,y=0;\n    cin >> n;\n    int a[n],b[n];\n    for(int i=0;i<n;i++){\n        cin>>a[i]>>b[i];\n        x=x-a[i]+b[i];\n        if(x>y){\n            y=x;\n        }\n    }\n    cout<<y;\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f40e6575eeac5fa6142a"
+  },
+  "problemNumber": "A",
+  "problemName": "Vanya and Fence",
+  "solvedDate": "2023-10-29",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/677/problem/A",
+  "problemStatement": "Vanya and his friends are walking along the fence of height h and they do not want the guard to notice them. In order to achieve this the height of each of the friends should not exceed h. If the height of some person is greater than h he can bend down and then he surely won't be noticed by the guard. The height of the i-th person is equal to ai.\n\nConsider the width of the person walking as usual to be equal to 1, while the width of the bent person is equal to 2. Friends want to talk to each other while walking, so they would like to walk in a single row. What is the minimum width of the road, such that friends can walk in a row and remain unattended by the guard?",
+  "quickNote": "implementation",
+  "solution": "#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int n,h,x=0,y=0;\n    cin >> n >>h;\n    int a[n];\n    for(int i=0;i<n;i++){\n        cin>>a[i];\n        if(a[i]>h){\n            x+=2;\n        }\n        else{\n            x+=1;\n        }\n    }\n    cout<<x;\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f4526575eeac5fa6142c"
+  },
+  "problemNumber": "A",
+  "problemName": "Queue at the School",
+  "solvedDate": "2023-10-29",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/266/problem/B",
+  "problemStatement": "During the break the schoolchildren, boys and girls, formed a queue of n people in the canteen. Initially the children stood in the order they entered the canteen. However, after a while the boys started feeling awkward for standing in front of the girls in the queue and they started letting the girls move forward each second.\n\nLet's describe the process more precisely. Let's say that the positions in the queue are sequentially numbered by integers from 1 to n, at that the person in the position number 1 is served first. Then, if at time x a boy stands on the i-th position and a girl stands on the (i + 1)-th position, then at time x + 1 the i-th position will have a girl and the (i + 1)-th position will have a boy. The time is given in seconds.\n\nYou've got the initial position of the children, at the initial moment of time. Determine the way the queue is going to look after t seconds.",
+  "quickNote": "constructive algorithms, graph matchings, implementation, shortest paths\n",
+  "solution": "#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int n,t,x=0,y=0;\n    string s,r;\n    cin >> n >>t;\n    cin>>s;\n    while(t>0){\n        for(int i=0;i<n;i++){\n            if(s[i]=='B'&& s[i+1]=='G'){\n                s[i]='G';\n                s[i+1]='B';\n                i++;\n            }\n        }\n        t--;\n    }\n    cout<<s;\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f4756575eeac5fa6142e"
+  },
+  "problemNumber": "A",
+  "problemName": "Beautiful Year",
+  "solvedDate": "2023-10-29",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/271/problem/A",
+  "problemStatement": "It seems like the year of 2013 came only yesterday. Do you know a curious fact? The year of 2013 is the first year after the old 1987 with only distinct digits.\n\nNow you are suggested to solve the following problem: given a year number, find the minimum year number which is strictly larger than the given one and has only distinct digits.",
+  "quickNote": "brute force",
+  "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nbool areDigitsDistinct(int n) {\n    vector<bool> exists(10, false);\n    while (n > 0) {\n        if (exists[n % 10]) return false;\n        exists[n % 10] = true;\n        n /= 10;\n    }\n    return true;\n}\n\nint main() {\n    int y;\n    cin >> y;\n    while (true) {\n        y++;\n        if (areDigitsDistinct(y)) {\n            cout << y;\n            break;\n        }\n    }\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f4a26575eeac5fa61430"
+  },
+  "problemNumber": "A",
+  "problemName": "In Search of an Easy Problem",
+  "solvedDate": "2023-10-30",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/1030/problem/A",
+  "problemStatement": "outputstandard output\nWhen preparing a tournament, Codeforces coordinators try treir best to make the first problem as easy as possible. This time the coordinator had chosen some problem and asked n\n people about their opinions. Each person answered whether this problem is easy or hard.\n\nIf at least one of these n\n people has answered that the problem is hard, the coordinator decides to change the problem. For the given responses, check if the problem is easy enough.",
+  "quickNote": "implementation\n",
+  "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int x,y=0,n;\n    cin >> n;\n    for (int i = 0; i < n; i++)\n    {\n        cin>>x;\n        if(x==1)\n            y++;\n    }\n    if (y>0)\n    {\n        cout<<\"HARD\";\n    }\n    else if(y==0)\n        cout<<\"EASY\";\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f4c66575eeac5fa61432"
+  },
+  "problemNumber": "A",
+  "problemName": "George and Accommodation",
+  "solvedDate": "2023-10-30",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/467/problem/A",
+  "problemStatement": "George has recently entered the BSUCP (Berland State University for Cool Programmers). George has a friend Alex who has also entered the university. Now they are moving into a dormitory.\n\nGeorge and Alex want to live in the same room. The dormitory has n rooms in total. At the moment the i-th room has pi people living in it and the room can accommodate qi people in total (pi ≤ qi). Your task is to count how many rooms has free place for both George and Alex.",
+  "quickNote": "Implementation",
+  "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int x,y,n,r=0;\n    cin >> n;\n    for (int i = 0; i < n; i++)\n    {\n        cin>>x>>y;\n        if(x<y && y-x>1)\n            r++;\n    }\n    cout<<r;\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f50a6575eeac5fa61434"
+  },
+  "problemNumber": "A",
+  "problemName": "Magnets",
+  "solvedDate": "2023-10-30",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/344/problem/A",
+  "problemStatement": "Mad scientist Mike entertains himself by arranging rows of dominoes. He doesn't need dominoes, though: he uses rectangular magnets instead. Each magnet has two poles, positive (a \"plus\") and negative (a \"minus\"). If two magnets are put together at a close distance, then the like poles will repel each other and the opposite poles will attract each other.\n\nMike starts by laying one magnet horizontally on the table. During each following step Mike adds one more magnet horizontally to the right end of the row. Depending on how Mike puts the magnet on the table, it is either attracted to the previous one (forming a group of multiple magnets linked together) or repelled by it (then Mike lays this magnet at some distance to the right from the previous one). We assume that a sole magnet not linked to others forms a group of its own.Mike arranged multiple magnets in a row. Determine the number of groups that the magnets formed.",
+  "quickNote": "implementation",
+  "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, r = 0;\n    cin >> n;\n    string x[n];\n    for (int i = 0; i < n; i++)\n    {\n        cin >> x[i];\n        if(i > 0 && x[i] != x[i-1]){\n            r++;\n        }\n    }\n    cout << r+1;\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f5336575eeac5fa61436"
+  },
+  "problemNumber": "A",
+  "problemName": "Presents",
+  "solvedDate": "2023-10-31",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/136/problem/A",
+  "problemStatement": "Little Petya very much likes gifts. Recently he has received a new laptop as a New Year gift from his mother. He immediately decided to give it to somebody else as what can be more pleasant than giving somebody gifts. And on this occasion he organized a New Year party at his place and invited n his friends there.\n\nIf there's one thing Petya likes more that receiving gifts, that's watching others giving gifts to somebody else. Thus, he safely hid the laptop until the next New Year and made up his mind to watch his friends exchanging gifts while he does not participate in the process. He numbered all his friends with integers from 1 to n. Petya remembered that a friend number i gave a gift to a friend number pi. He also remembered that each of his friends received exactly one gift.\n\nNow Petya wants to know for each friend i the number of a friend who has given him a gift.",
+  "quickNote": "implementation",
+  "solution": "#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    vector<int> p(n+1), res(n+1);\n    for(int i = 1; i <= n; i++) {\n        cin >> p[i];\n        res[p[i]] = i;\n    }\n    for(int i = 1; i <= n; i++) {\n        cout << res[i] << \" \";\n    }\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f5686575eeac5fa61438"
+  },
+  "problemNumber": "A",
+  "problemName": "Young Physicist",
+  "solvedDate": "2024-01-28",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/69/problem/A",
+  "problemStatement": "A guy named Vasya attends the final grade of a high school. One day Vasya decided to watch a match of his favorite hockey team. And, as the boy loves hockey very much, even more than physics, he forgot to do the homework. Specifically, he forgot to complete his physics tasks. Next day the teacher got very angry at Vasya and decided to teach him a lesson. He gave the lazy student a seemingly easy task: You are given an idle body in space and the forces that affect it. The body can be considered as a material point with coordinates (0; 0; 0). Vasya had only to answer whether it is in equilibrium. \"Piece of cake\" — thought Vasya, we need only to check if the sum of all vectors is equal to 0. So, Vasya began to solve the problem. But later it turned out that there can be lots and lots of these forces, and Vasya can not cope without your help. Help him. Write a program that determines whether a body is idle or is moving by the given vectors of forces.",
+  "quickNote": "implementation, math",
+  "solution": "#include<bits/stdc++.h>\nusing namespace std;\n\nint main(){\n    int n;\n    cin >> n;\n    int x = 0, y = 0, z = 0;\n    for(int i=0;i<n;i++){\n        int xi, yi, zi;\n        cin >> xi >> yi >> zi;\n        x += xi;\n        y += yi;\n        z += zi;\n    }\n    if(x == 0 && y == 0 && z == 0)\n        cout << \"YES\";\n    else\n        cout << \"NO\";\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f5996575eeac5fa6143a"
+  },
+  "problemNumber": "A",
+  "problemName": "Borze",
+  "solvedDate": "2024-01-28",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/32/problem/B",
+  "problemStatement": "Ternary numeric notation is quite popular in Berland. To telegraph the ternary number the Borze alphabet is used. Digit 0 is transmitted as «.», 1 as «-.» and 2 as «--». You are to decode the Borze code, i.e. to find out the ternary number given its representation in Borze alphabet.",
+  "quickNote": "expression parsing, implementation ",
+  "solution": "#include<bits/stdc++.h>\nusing namespace std;\n\nint main(){\n    char str[200];\n    cin >> str;\n    int x = strlen(str);\n    for(int i=0;i<x;i++){\n        if(str[i]=='.')\n            cout<<0;\n        else if(str[i]=='-'){\n            if(str[i+1]=='.'){\n               cout<<1; \n               i++;\n            }\n            else if(str[i+1]=='-'){\n                cout<<2;\n                i++;\n            }\n        }\n    }\n    \n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f5ca6575eeac5fa6143c"
+  },
+  "problemNumber": "A",
+  "problemName": "Lights Out",
+  "solvedDate": "2024-01-28",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/275/problem/A",
+  "problemStatement": "Lenny is playing a game on a 3 × 3 grid of lights. In the beginning of the game all lights are switched on. Pressing any of the lights will toggle it and all side-adjacent lights. The goal of the game is to switch all the lights off. We consider the toggling as follows: if the light was switched on then it will be switched off, if it was switched off then it will be switched on.\n\nLenny has spent some time playing with the grid and by now he has pressed each light a certain number of times. Given the number of times each light is pressed, you have to print the current state of each light.",
+  "quickNote": "Implementation",
+  "solution": "#include<bits/stdc++.h>\nusing namespace std;\n\nint main(){\n    int light[3][3] = {1, 1, 1, 1, 1, 1, 1, 1, 1};\n    for(int i=0;i<3;i++){\n        for(int j=0;j<3;j++){\n            int x;\n            cin >> x;\n            light[i][j] ^= x % 2;\n            if(i > 0) light[i-1][j] ^= x % 2; \n            if(j > 0) light[i][j-1] ^= x % 2; \n            if(i < 2) light[i+1][j] ^= x % 2;\n            if(j < 2) light[i][j+1] ^= x % 2;\n        }\n    }\n    for(int i=0;i<3;i++){\n        for(int j=0;j<3;j++){\n            cout << light[i][j];\n        }\n        cout << \"\\n\";\n    }\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f6076575eeac5fa6143e"
+  },
+  "problemNumber": "A",
+  "problemName": "Panoramix's Prediction",
+  "solvedDate": "2024-01-28",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/80/problem/A",
+  "problemStatement": "A prime number is a number which has exactly two distinct divisors: one and itself. For example, numbers 2, 7, 3 are prime, and 1, 6, 4 are not.\n\nThe next prime number after x is the smallest prime number greater than x. For example, the next prime number after 2 is 3, and the next prime number after 3 is 5. Note that there is exactly one next prime number after each number. So 5 is not the next prime number for 2.\n\nOne cold April morning Panoramix predicted that soon Kakofonix will break free from his straitjacket, and this will be a black day for the residents of the Gallic countryside.\n\nPanoramix's prophecy tells that if some day Asterix and Obelix beat exactly x Roman soldiers, where x is a prime number, and next day they beat exactly y Roman soldiers, where y is the next prime number after x, then it's time to wait for Armageddon, for nothing can shut Kakofonix up while he sings his infernal song.\n\nYesterday the Gauls beat n Roman soldiers and it turned out that the number n was prime! Today their victims were a troop of m Romans (m > n). Determine whether the Gauls should wait for the black day after today's victory of Asterix and Obelix?",
+  "quickNote": "brute force",
+  "solution": "#include<bits/stdc++.h>\nusing namespace std;\n\nbool isPrime(int n) {\n    if (n <= 1)\n        return false;\n    if (n == 2)\n        return true;\n    if (n % 2 == 0)\n        return false;\n    for (int i = 2; i <= n/2; ++i)\n        if (n % i == 0)\n            return false;\n    return true;\n}\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n    for (int i = n + 1; i <= m; i++) {\n        if (isPrime(i)) {\n            if (i == m) {\n                cout << \"YES\";\n            } else {\n                cout << \"NO\";\n            }\n            return 0;\n        }\n    }\n    cout << \"NO\";\n    return 0;\n}",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8f6316575eeac5fa61440"
+  },
+  "problemNumber": "A",
+  "problemName": "Effective Approach",
+  "solvedDate": "2024-01-28",
+  "platformName": "Codeforces",
+  "problemLink": "https://codeforces.com/contest/227/problem/B",
+  "problemStatement": "Once at a team training Vasya, Petya and Sasha got a problem on implementing linear search in an array.\n\nAccording to the boys, linear search works as follows. The array elements in a pre-selected order are in turn compared with the number that you need to find. Once you find the array element that is equal to the required one, the search ends. The efficiency of the algorithm is the number of performed comparisons. The fewer comparisons the linear search has made, the more effective it is.\n\nVasya believes that a linear search would work better if it sequentially iterates through the elements, starting with the 1-st one (in this problem we consider the elements of the array indexed from 1 to n) and ending with the n-th one. And Petya says that Vasya is wrong: the search will need less comparisons if it sequentially iterates the elements starting from the n-th and ending with the 1-st one. Sasha argues that the two approaches are equivalent.\n\nTo finally begin the task, the teammates decided to settle the debate and compare the two approaches on an example. For this, they took an array that is a permutation of integers from 1 to n, and generated m queries of the form: find element with value bi in the array. They want to calculate for both approaches how many comparisons in total the linear search will need to respond to all queries. If the first search needs fewer comparisons, then the winner of the dispute is Vasya. If the second one does, then the winner is Petya. If both approaches make the same number of comparisons, then Sasha's got the upper hand.\n\nBut the problem is, linear search is too slow. That's why the boys aren't going to find out who is right before the end of the training, unless you come in here. Help them to determine who will win the dispute.",
+  "quickNote": "implementation",
+  "solution": "#include<bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m;\n    long long v=0, p=0;\n    cin >> n;\n    vector<int> a(n+1), b(n+1);\n    for (int i = 1; i <= n; i++) {\n        int x;\n        cin >> x;\n        a[x] = i;\n        b[x] = n - i + 1;\n    }\n    cin >> m;\n    while(m--) {\n        int x;\n        cin >> x;\n        v += a[x];\n        p += b[x];\n    }\n    cout<<v<<\" \"<<p;\n    return 0;\n}",
+  "__v": 0
+}]
